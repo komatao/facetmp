@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/admin/api/v1")
-public class AdminApiController {
+@RequestMapping("/admin/test")
+public class AdminTestController {
 
     @Autowired
     UserDao userDao;

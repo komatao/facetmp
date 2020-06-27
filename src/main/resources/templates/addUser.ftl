@@ -23,30 +23,21 @@
     </div>
 </nav>
 <div class="container">
-    <table class="table">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>name</th>
-            <th>id</th>
-            <th>in out</th>
-            <th>temperature</th>
-            <th>date</th>
-        </tr>
-        </thead>
-        <tbody>
-        <#list events as event>
-            <tr>
-                <th>${event.no}</th>
-                <td>${event.user.getName()}</td>
-                <td>${event.user.getId()}</td>
-                <td>${event.inAndOut}</td>
-                <td>${event.temperature}</td>
-                <td>${event.created}</td>
-            </tr>
-        </#list>
-        </tbody>
-    </table>
+    <form role="form" action="/admin/addUser" method="post">
+        <div class="form-group row">
+            <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputId" class="col-sm-2 col-form-label">Id</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputId" name="inputId" placeholder="Id">
+            </div>
+        </div>
+        <button type="submit">submit</button>
+    </form>
 </div>
 </body>
 </html>

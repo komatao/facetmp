@@ -39,6 +39,7 @@ public class IdregController {
                     event.setTemperature(param.getTemperature());
                     event.setCreated(param.getVisitTime());
                     event.setInAndOut(param.getInAndOut());
+
                     eventDao.add(event);
                 }
 
@@ -51,46 +52,46 @@ public class IdregController {
     }
 
 
-    @PostMapping("/staff/syncStaffs")
-    public Map<String, Object> syncStaff(@RequestBody SyncStaffRequest request) {
-        List<SyncStaffResponse> staffs = userDao.search(request.getQueryTimestamp()).stream().map(user -> {
-            SyncStaffResponse staff = new SyncStaffResponse();
-
-            staff.setId(user.getId());
-            staff.setStaffCode(user.getId());
-            staff.setStaffName(user.getName());
-            staff.setStaffImgUrl01(user.getImgs().get(0));
-            if (user.getImgs().size() > 1) {
-                staff.setStaffImgUrl02(user.getImgs().get(1));
-            }
-            staff.setStatus(1);
-            staff.setTimestampStr("" + user.getCreated());
-
-            return staff;
-        }).collect(Collectors.toList());
-
-        Map<String, Object> response = new HashMap<>();
-        response.put("code", "0");
-        response.put("message", "succeed");
-        response.put("data", staffs);
-        return response;
-    }
-
-
-    @PostMapping("/site/syncSettings")
-    public Map<String, Object> syncSettings(@RequestBody Map body) {
-        log.info("body {}", body);
-
-        Map<String, Object> response = new HashMap<>();
-        response.put("code", "0");
-        response.put("message", "succeed");
-        Map<String, String> data = new HashMap<>();
-        // force enable data upload
-        data.put("dataUpload", "1");
-        List<Map<String, String>> list = new ArrayList<>();
-        list.add(data);
-        response.put("data", list);
-        log.info("response {}", response);
-        return response;
-    }
+//    @PostMapping("/staff/syncStaffs")
+//    public Map<String, Object> syncStaff(@RequestBody SyncStaffRequest request) {
+//        log.info("sync staff: {}", request);
+////        List<SyncStaffResponse> staffs = userDao.search(request.getQueryTimestamp()).stream().map(user -> {
+////            SyncStaffResponse staff = new SyncStaffResponse();
+////
+////            staff.setId(user.getId());
+////            staff.setStaffCode(user.getId());
+////            staff.setStaffName(user.getName());
+////            staff.setStaffImgUrl01(user.getImgs().get(0));
+////            staff.setStaffImgUrl02(user.getImgs().get(1));
+////            staff.setStatus(1);
+////            staff.setTimestampStr("" + user.getCreated());
+////
+////            return staff;
+////        }).collect(Collectors.toList());
+//
+//        Map<String, Object> response = new HashMap<>();
+//        response.put("code", "0");
+//        response.put("message", "succeed");
+////        response.put("data", staffs);
+//        response.put("data", new ArrayList<>());
+//        return response;
+//    }
+//
+//
+//    @PostMapping("/site/syncSettings")
+//    public Map<String, Object> syncSettings(@RequestBody Map body) {
+//        log.info("body {}", body);
+//
+//        Map<String, Object> response = new HashMap<>();
+//        response.put("code", "0");
+//        response.put("message", "succeed");
+//        Map<String, String> data = new HashMap<>();
+//        // force enable data upload
+//        data.put("dataUpload", "1");
+//        List<Map<String, String>> list = new ArrayList<>();
+//        list.add(data);
+//        response.put("data", list);
+//        log.info("response {}", response);
+//        return response;
+//    }
 }
