@@ -3,31 +3,31 @@
 
 <html lang="en">
 <body>
-<hr>
-<table class="table">
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>name</th>
-        <th>id</th>
-        <th>in out</th>
-        <th>temperature</th>
-        <th>date</th>
-    </tr>
-    </thead>
-    <tbody>
-    <#list events as event>
+<div class="container">
+    <table class="table">
+        <thead>
         <tr>
-            <th>${event.no}</th>
-            <td>user name</td>
-            <td>user id</td>
-            <td>${event.inAndOut}</td>
-            <td>${event.temperature}</td>
-            <td>${event.created}</td>
+            <th>#</th>
+            <th>name</th>
+            <th>id</th>
+            <th>in out</th>
+            <th>temperature</th>
+            <th>date</th>
         </tr>
-        <hr>
-    </#list>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <#list events as event>
+            <tr>
+                <th>${event.no}</th>
+                <td>${event.user.getName()}</td>
+                <td>${event.user.getId()}</td>
+                <td>${event.inAndOut}</td>
+                <td>${event.temperature}</td>
+                <td>${event.created}</td>
+            </tr>
+        </#list>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

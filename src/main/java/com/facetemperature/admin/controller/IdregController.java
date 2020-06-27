@@ -3,15 +3,13 @@ package com.facetemperature.admin.controller;
 import com.facetemperature.admin.dao.EventDao;
 import com.facetemperature.admin.dao.UserDao;
 import com.facetemperature.admin.model.Event;
+import com.facetemperature.admin.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @RequestMapping("/idreg/v1")
@@ -32,7 +30,12 @@ public class IdregController {
         params.getData().forEach(param ->
                 {
                     Event event = new Event();
-                    userDao.get(param.getVisitCode()).ifPresent(event::setUser);
+                    Optional<User> userOptional = userDao.get(param.getVisitCode());
+                    if (userOptional.isPresent()) {
+                        event.setUser(userOptional.get());
+                    } else {
+                        event.setUser(new User(param.getVisitName(), param.getVisitCode()));
+                    }
                     event.setTemperature(param.getTemperature());
                     event.setCreated(param.getVisitTime());
                     event.setInAndOut(param.getInAndOut());

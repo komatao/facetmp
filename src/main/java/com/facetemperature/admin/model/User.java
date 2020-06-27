@@ -40,4 +40,9 @@ public class User {
     }
 
     private List<String> imgs;
+
+    public User(String name, String id) {
+        this.name = name;
+        this.id = id;
+    }
 }
