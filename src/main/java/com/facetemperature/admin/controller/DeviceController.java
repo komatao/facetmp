@@ -21,4 +21,18 @@ public class DeviceController {
 
         return response;
     }
+
+    @PostMapping("/site/syncSettings")
+    public Map syncStaffs(@RequestBody Map body) {
+        log.info("body {}", body);
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("code", "0");
+        response.put("message", "succeed");
+        Map<String, String> data = new HashMap<>();
+        data.put("dataUpload", "1");
+        response.put("data", data);
+        log.info("response {}", response);
+        return response;
+    }
 }
