@@ -4,7 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RequestMapping("/idreg/v1")
@@ -31,7 +33,9 @@ public class DeviceController {
         response.put("message", "succeed");
         Map<String, String> data = new HashMap<>();
         data.put("dataUpload", "1");
-        response.put("data", data);
+        List<Map> list = new ArrayList<>();
+        list.add(data);
+        response.put("data", list);
         log.info("response {}", response);
         return response;
     }
