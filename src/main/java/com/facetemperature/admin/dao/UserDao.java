@@ -37,6 +37,6 @@ public class UserDao {
 
     public void delete(String id) {
         Optional<User> userOptional = users.stream().filter(user -> user.getId().equals(id)).findFirst();
-        userOptional.ifPresent(user -> users.remove(user));
+        userOptional.ifPresent(users::remove);
     }
 }

@@ -19,7 +19,7 @@ public class EventDao {
     }
 
     public List<Event> get(int size) {
-        return events.subList(0, size);
+        return events.subList(0, Math.min(events.size(), size));
     }
 
     public List<Event> get(String userId, int size) {
