@@ -45,7 +45,11 @@ public class EventDao {
         List<Event> ret = new ArrayList<>();
         int count = 0;
         for (Event event : events) {
-            if (event.getUser().getCreated() >= createdBegin && event.getUser().getCreated() < createdEnd) {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            long createTime = simpleDateFormat.parse(event.getUser().getCreated()).getTime();;
+            log.info("createTime {}", createTime);
+
+            if (createTime >= createdBegin && createTime < createdEnd) {
                 ret.add(event);
                 count++;
                 if (count == size) {
