@@ -17,7 +17,7 @@ public class IdregController {
     private static final Logger log = LoggerFactory.getLogger(IdregController.class);
 
     @Autowired
-    private final EventDao eventDao;
+    private EventDao eventDao;
 
     // @Autowired
     // UserDao userDao;
