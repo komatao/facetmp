@@ -19,11 +19,10 @@ import java.util.stream.Collectors;
 public class IdregController {
     private static final Logger log = LoggerFactory.getLogger(IdregController.class);
 
-    @Autowired
-    EventDao eventDao;
+    private final EventDao eventDao;
 
-    @Autowired
-    UserDao userDao;
+    // @Autowired
+    // UserDao userDao;
 
     @PostMapping("/record/temperatures")
     public Map<String, Object> postTemperatures(@RequestBody TemperatureRequestParams params) {

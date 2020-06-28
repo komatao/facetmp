@@ -23,11 +23,11 @@ import java.util.List;
 public class AdminController {
     private static final Logger log = LoggerFactory.getLogger(AdminController.class);
 
-    @Autowired
-    UserDao userDao;
-
-    @Autowired
-    EventDao eventDao;
+    // @Autowired
+    // UserDao userDao;
+    //
+    // @Autowired
+    // EventDao eventDao;
 
     // @GetMapping("/")
     // public ModelAndView index() {

@@ -15,11 +15,11 @@ import java.util.List;
 @RequestMapping("/admin/test")
 public class AdminTestController {
 
-    @Autowired
-    UserDao userDao;
-
-    @Autowired
-    EventDao eventDao;
+    // @Autowired
+    // UserDao userDao;
+    //
+    // @Autowired
+    // EventDao eventDao;
 
 //    @GetMapping("/users")
 //    public List<User> users() {

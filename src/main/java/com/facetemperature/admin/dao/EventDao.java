@@ -13,10 +13,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-// @Repository
 public interface EventDao {
 
-    int insert(Event event);
+    void insert(Event event);
 
     //
     // private static final Logger log = LoggerFactory.getLogger(EventDao.class);
