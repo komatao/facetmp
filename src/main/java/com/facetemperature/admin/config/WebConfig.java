@@ -21,6 +21,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Bean
     public FreeMarkerConfigurer freemarkerConfig() {
         FreeMarkerConfigurer freeMarkerConfigurer = new FreeMarkerConfigurer();
+        freeMarkerConfigurer.setDefaultEncoding(Locale.getDefault(), "UTF-8");
         freeMarkerConfigurer.setTemplateLoaderPath("classpath:/templates/");
         return freeMarkerConfigurer;
     }
