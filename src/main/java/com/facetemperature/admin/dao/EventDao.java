@@ -53,17 +53,24 @@ public class EventDao {
         List<Event> ret = new ArrayList<>();
         int count = 0;
         for (Event event : events) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            long createTime = simpleDateFormat.parse(event.getCreated()).getTime();;
-            log.info("createTime {}", createTime);
+            try {
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                long createTime = simpleDateFormat.parse(event.getCreated()).getTime();
 
-            if (createTime >= createdBegin && createTime < createdEnd) {
-                ret.add(event);
-                count++;
-                if (count == size) {
-                    break;
+                log.info("createTime {}", createTime);
+                if (createTime >= createdBegin && createTime < createdEnd) {
+                    ret.add(event);
+                    count++;
+                    if (count == size) {
+                        break;
+                    }
                 }
+            } catch (ParseException e) {
+                log.error("parse excpetion {}", e);
+
             }
+
+
         }
         return ret;
     }
