@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -14,7 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Repository
 public class EventDao {
 
-    private static final Logger log = LoggerFactory.getLogger(AdminController.class);
+    private static final Logger log = LoggerFactory.getLogger(EventDao.class);
 
     private final LinkedList<Event> events = new LinkedList<>();
     AtomicInteger nextNo = new AtomicInteger(1);
@@ -47,12 +49,12 @@ public class EventDao {
         return ret;
     }
 
-    public List<Event> get(long createdBegin, long createdEnd, int size) {
+    public List<Event> get(long createdBegin, long createdEnd, int size) throws ParseException {
         List<Event> ret = new ArrayList<>();
         int count = 0;
         for (Event event : events) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            long createTime = simpleDateFormat.parse(event.getUser().getCreated()).getTime();;
+            long createTime = simpleDateFormat.parse(event.getCreated()).getTime();;
             log.info("createTime {}", createTime);
 
             if (createTime >= createdBegin && createTime < createdEnd) {
