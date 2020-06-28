@@ -33,6 +33,9 @@ public class AdminController {
     public ModelAndView index() {
 
         Long time = new Date().getTime();
+        log.info("current time {}", time);
+        log.info("current day start time {}", time - time % (24 * 60 * 60 * 1000));
+        log.info("current day end time {}", time - time % (24 * 60 * 60 * 1000) + 24 * 60 * 60 * 1000);
 
         List<Event> eventList = eventDao.get(time - time % (24 * 60 * 60 * 1000), time - time % (24 * 60 * 60 * 1000) + 24 * 60 * 60 * 1000, 100);
         return new ModelAndView("index", "events", eventList);
