@@ -30,19 +30,24 @@ public class IdregController {
         params.getData().forEach(param ->
                 {
                     Event event = new Event();
-                    Optional<User> userOptional = userDao.get(param.getVisitCode());
-                    if (userOptional.isPresent()) {
-                        event.setUser(userOptional.get());
-                    } else {
-                        event.setUser(new User(param.getVisitName(), param.getVisitCode()));
-                    }
+                    event.setVisitName(param.getVisitName());
+                    event.setVisitCode(param.getVisitCode());
+                    event.setVisitTime(param.getVisitTime());
                     event.setTemperature(param.getTemperature());
-                    event.setCreated(param.getVisitTime());
-                    event.setInAndOut(param.getInAndOut());
-
-                    if (!eventDao.has(event)) {
-                        eventDao.add(event);
-                    }
+                    eventDao.insert(event);
+//                    Optional<User> userOptional = userDao.get(param.getVisitCode());
+//                    if (userOptional.isPresent()) {
+//                        event.setUser(userOptional.get());
+//                    } else {
+//                        event.setUser(new User(param.getVisitName(), param.getVisitCode()));
+//                    }
+//                    event.setTemperature(param.getTemperature());
+//                    event.setCreated(param.getVisitTime());
+//                    event.setInAndOut(param.getInAndOut());
+//
+//                    if (!eventDao.has(event)) {
+//                        eventDao.add(event);
+//                    }
                 }
 
         );

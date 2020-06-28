@@ -21,13 +21,13 @@ public class AdminTestController {
     @Autowired
     EventDao eventDao;
 
-    @GetMapping("/users")
-    public List<User> users() {
-        return userDao.all();
-    }
-
-    @GetMapping("/events")
-    public List<Event> events() {
-        return eventDao.all();
-    }
+//    @GetMapping("/users")
+//    public List<User> users() {
+//        return userDao.all();
+//    }
+//
+//    @GetMapping("/events")
+//    public List<Event> events() {
+//        return eventDao.all();
+//    }
 }

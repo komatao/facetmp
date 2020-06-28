@@ -44,7 +44,7 @@
             <th>退勤時間</th>
             -->
             <th>#</th>
-            <th>dev</th>
+            <th>department</th>
             <th>name</th>
             <th>id</th>
             <th>temp 1</th>
@@ -57,7 +57,7 @@
         <#list events as event>
             <tr>
                 <th>${event.no}</th>
-                <td></td>
+                <td>Business</td>
                 <td>${event.user.getName()}</td>
                 <td>${event.user.getId()}</td>
                 <td>${event.temperature}</td>

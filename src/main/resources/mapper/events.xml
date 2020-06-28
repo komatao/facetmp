@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.facetemperature.admin.dao.EventDao">
+  <sql id="columns">
+    `visit_name`,`visit_time`, `temperature`, `visit_code`
+  </sql>
+
+  <insert id="insert" parameterType="com.facetemperature.admin.model.Event">
+    INSERT INTO `visit_histories`
+    (`visit_name`,`visit_time`, `temperature`, `visit_code`)
+    VALUES
+    (#{visitName}, #{visitTime}, #{temperature}, #{visitCode})
+  </insert>
+
+  <!-- <update id="update" parameterType="top.gp.domain.AppMeta">
+    UPDATE
+      `app_meta`
+    SET
+      `nid` = #{nid},
+      `description` = #{description},
+      `app_secret` = #{appSecret},
+      `title` = #{title},
+      `slogan` = #{slogan},
+      `id_callback` = #{idCallback},
+      `email` = #{email},
+      `company` = #{company},
+      `short_title` = #{shortTitle},
+      `twitter_site` = #{twitterSite},
+      `settlement` = #{settlement},
+      `cdn_url` = #{cdnUrl},
+      `game_url` = #{gameUrl},
+      `favicon_url` = #{faviconUrl},
+      `redirect_url` = #{redirectUrl}
+    WHERE
+      `app_id` = #{appId}
+  </update>
+
+  <delete id="delete">
+    DELETE FROM
+      `app_meta`
+    WHERE
+      `app_id` = #{appId}
+  </delete>
+
+  <select id="get" resultType="top.gp.domain.AppMeta">
+    SELECT
+    <include refid="columns" />
+    FROM `app_meta`
+    WHERE `app_id` = #{appId}
+  </select>
+
+  <select id="findAll" resultType="top.gp.domain.AppMeta">
+    SELECT
+      <include refid="columns" />
+    FROM `app_meta`
+  </select> -->
+</mapper>
