@@ -4,6 +4,7 @@
 <html lang="ja">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8" />
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
