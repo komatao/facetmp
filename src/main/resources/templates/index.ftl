@@ -2,6 +2,9 @@
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 <html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Navbar</a>
@@ -27,22 +30,26 @@
         <thead>
         <tr>
             <th>#</th>
-            <th>name</th>
-            <th>id</th>
-            <th>in out</th>
-            <th>temperature</th>
-            <th>date</th>
+            <th>部署</th>
+            <th>氏名</th>
+            <th>社員番号</th>
+            <th>出勤体温</th>
+            <th>退勤体温</th>
+            <th>出勤時間</th>
+            <th>退勤時間</th>
         </tr>
         </thead>
         <tbody>
         <#list events as event>
             <tr>
                 <th>${event.no}</th>
+                <td>営業部</td>
                 <td>${event.user.getName()}</td>
                 <td>${event.user.getId()}</td>
-                <td>${event.inAndOut}</td>
                 <td>${event.temperature}</td>
+                <td></td>
                 <td>${event.created}</td>
+                <td></td>
             </tr>
         </#list>
         </tbody>
