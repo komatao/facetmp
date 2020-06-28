@@ -16,8 +16,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-freemarker'
     implementation 'org.projectlombok:lombok'
-
-    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
+    implementation org.springframework.security:spring-security-crypto'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
