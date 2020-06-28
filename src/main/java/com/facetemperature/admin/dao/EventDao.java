@@ -3,6 +3,9 @@ package com.facetemperature.admin.dao;
 import com.facetemperature.admin.model.Event;
 import org.springframework.stereotype.Repository;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -10,6 +13,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
 public class EventDao {
+
+    private static final Logger log = LoggerFactory.getLogger(AdminController.class);
+
     private final LinkedList<Event> events = new LinkedList<>();
     AtomicInteger nextNo = new AtomicInteger(1);
 

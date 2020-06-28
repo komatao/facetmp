@@ -20,7 +20,7 @@
                 <a class="nav-link" href="/">Record <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="history">History <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/history">History <span class="sr-only">(current)</span></a>
             </li>
         </ul>
 <!--
