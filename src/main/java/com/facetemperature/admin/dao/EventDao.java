@@ -49,7 +49,7 @@ public class EventDao {
         return ret;
     }
 
-    public List<Event> get(long createdBegin, long createdEnd, int size) throws ParseException {
+    public List<Event> get(long createdBegin, long createdEnd, int size) {
         List<Event> ret = new ArrayList<>();
         int count = 0;
         for (Event event : events) {
