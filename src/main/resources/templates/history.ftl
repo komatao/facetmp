@@ -27,7 +27,7 @@
         <form class="form-inline my-2 my-lg-0">
             <a class="nav-link" href="/admin/addUser">Add User</a>
         </form>
-        -->
+    -->      
     </div>
 </nav>
 <div class="container">

@@ -30,6 +30,15 @@ public class AdminController {
 
     @GetMapping("/")
     public ModelAndView index() {
+
+        Long time = new Date().getTime();
+
+        List<Event> eventList = eventDao.get(time - time % (24 * 60 * 60 * 1000), time - time % (24 * 60 * 60 * 1000) + 24 * 60 * 60 * 1000, 100);
+        return new ModelAndView("index", "events", eventList);
+    }
+
+    @GetMapping("/history")
+    public ModelAndView history() {
         List<Event> eventList = eventDao.get(100);
         return new ModelAndView("index", "events", eventList);
     }

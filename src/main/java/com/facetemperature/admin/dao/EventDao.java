@@ -41,6 +41,21 @@ public class EventDao {
         return ret;
     }
 
+    public List<Event> get(long createdBegin, long createdEnd, int size) {
+        List<Event> ret = new ArrayList<>();
+        int count = 0;
+        for (Event event : events) {
+            if (event.getUser().getCreated() >= createdBegin && event.getUser().getCreated() < createdEnd) {
+                ret.add(event);
+                count++;
+                if (count == size) {
+                    break;
+                }
+            }
+        }
+        return ret;
+    }
+
     public List<Event> all() {
         return events;
     }
