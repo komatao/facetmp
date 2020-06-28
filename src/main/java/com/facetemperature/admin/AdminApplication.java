@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ImportResource;
 
+@ComponentScan("com.facetemperature")
 @SpringBootApplication
 @ImportResource(value = "classpath:/spring/application-context.xml")
 public class AdminApplication {
