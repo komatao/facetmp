@@ -1,16 +1,28 @@
 package com.facetemperature.admin.model;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Event {
     private String visitName;
     private String visitCode;
     private String visitTime;
-    private String temperature;
+    private Double temperature;
+
+    public void setVisitName(String name) {
+        visitName = name;
+    }
+
+    public void setVisitCode(String code) {
+        visitCode = code;
+    }
+
+    public void setVisitTime(String time) {
+        visitTime = time;
+    }
+
+    public void setTemperature(Double temp) {
+        temperature = temp;
+    }
 //    private long no;
 //    private User user;
 //    private double temperature;
