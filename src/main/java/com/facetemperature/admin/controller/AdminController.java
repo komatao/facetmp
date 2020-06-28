@@ -30,7 +30,7 @@ public class AdminController {
 
     @GetMapping("/")
     public ModelAndView index() {
-        List<Event> eventList = eventDao.get(10);
+        List<Event> eventList = eventDao.get(100);
         return new ModelAndView("index", "events", eventList);
     }
 
