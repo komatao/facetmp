@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+			 http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
+
+  <!-- datasource -->
+  <bean id="dataSourceFace" class="com.zaxxer.hikari.HikariDataSource" primary="true"
+        destroy-method="close">
+    <property name="poolName" value="face" />
+    <property name="connectionTestQuery" value="SELECT 1" />
+    <property name="dataSourceClassName" value="${dataSource.driverClassName}" />
+    <property name="maximumPoolSize" value="${dataSource.poolsize}" />
+    <property name="idleTimeout" value="${dataSource.maxWait}" />
+    <property name="dataSourceProperties">
+      <props>
+        <prop key="url">${dataSource.url}</prop>
+        <prop key="user">${dataSource.username}</prop>
+        <prop key="password">${dataSource.password}</prop>
+      </props>
+    </property>
+  </bean>
+  <!-- sqlSessionFactory -->
+  <bean id="sqlSessionFactoryFace" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <property name="dataSource" ref="dataSourceFace" />
+    <property name="configLocation" value="classpath:mybatis-config.xml" />
+    <property name="mapperLocations" value="classpath:mapper/*.xml" />
+  </bean>
+  <mybatis:scan base-package="com.facetemperature.admin.dao"
+                factory-ref="sqlSessionFactoryFace" />
+
+</beans>
