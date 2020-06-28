@@ -18,6 +18,10 @@ public class EventDao {
         events.addFirst(event);
     }
 
+    public boolean has(Event event) {
+        return events.stream().anyMatch(event1 -> event1.equal(event));
+    }
+
     public List<Event> get(int size) {
         return events.subList(0, Math.min(events.size(), size));
     }

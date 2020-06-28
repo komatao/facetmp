@@ -40,7 +40,9 @@ public class IdregController {
                     event.setCreated(param.getVisitTime());
                     event.setInAndOut(param.getInAndOut());
 
-                    eventDao.add(event);
+                    if (!eventDao.has(event)) {
+                        eventDao.add(event);
+                    }
                 }
 
         );

@@ -47,4 +47,8 @@ public class Event {
     }
 
     private String created;
+
+    public boolean equal(Event event) {
+        return event.getCreated().equals(this.getCreated()) && event.getUser().getId().equals(this.getUser().getId());
+    }
 }
