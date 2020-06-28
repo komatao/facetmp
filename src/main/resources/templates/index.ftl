@@ -30,7 +30,7 @@
     <table class="table">
         <thead>
         <tr>
-            <th>#</th>
+       <!--     <th>#</th>
             <th>部署</th>
             <th>氏名</th>
             <th>社員番号</th>
@@ -38,6 +38,15 @@
             <th>退勤体温</th>
             <th>出勤時間</th>
             <th>退勤時間</th>
+            -->
+            <th>#</th>
+            <th>dev</th>
+            <th>name</th>
+            <th>id</th>
+            <th>temp 1</th>
+            <th>temp 2</th>
+            <th>time 1</th>
+            <th>time 2</th>
         </tr>
         </thead>
         <tbody>
