@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public interface EventDao {
 
     void insert(Event event);
-
+    List<Event> get(String visitCode, String visitTime);
     //
     // private static final Logger log = LoggerFactory.getLogger(EventDao.class);
     //

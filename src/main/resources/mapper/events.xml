@@ -14,6 +14,13 @@
     (#{visitName}, #{visitTime}, #{temperature}, #{visitCode})
   </insert>
 
+  <select id="get" resultType="com.facetemperature.admin.model.Event">
+    SELECT
+    `id`
+    FROM `visit_histories`
+    WHERE `visit_time` = #{visitTime} AND `visit_code` = #{visitCode}
+  </select>
+
   <!-- <update id="update" parameterType="top.gp.domain.AppMeta">
     UPDATE
       `app_meta`

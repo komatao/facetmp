@@ -28,12 +28,19 @@ public class IdregController {
 
         params.getData().forEach(param ->
                 {
-                    Event event = new Event();
-                    event.setVisitName(param.getVisitName());
-                    event.setVisitCode(param.getVisitCode());
-                    event.setVisitTime(param.getVisitTime());
-                    event.setTemperature(param.getTemperature());
-                    eventDao.insert(event);
+
+                    List<Event> events = eventDao.get(param.getVisitCode(), param.getVisitTime());
+                    if (events.size() == 0) {
+                        log.info("record doesn't exist: {}", param.toString());
+
+                        Event event = new Event();
+                        event.setVisitName(param.getVisitName());
+                        event.setVisitCode(param.getVisitCode());
+                        event.setVisitTime(param.getVisitTime());
+                        event.setTemperature(param.getTemperature());
+                        eventDao.insert(event);
+                    }
+
 //                    Optional<User> userOptional = userDao.get(param.getVisitCode());
 //                    if (userOptional.isPresent()) {
 //                        event.setUser(userOptional.get());
