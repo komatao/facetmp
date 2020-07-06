@@ -26,10 +26,12 @@ public class IdregController {
     public Map<String, Object> postTemperatures(@RequestBody TemperatureRequestParams params) {
         log.info("body {}", params.toString());
 
+        int size = 0;
         params.getData().forEach(param ->
                 {
 
                     List<Event> events = eventDao.get(param.getVisitCode(), param.getVisitTime());
+                    size = events.size();
                     if (events.size() == 0) {
                         log.info("record doesn't exist: {}", param.toString());
 
@@ -59,8 +61,9 @@ public class IdregController {
         );
 
         Map<String, Object> response = new HashMap<>();
-        response.put("code", 0);
-        response.put("msg", "succeed");
+        response.put("code", "0");
+        response.put("message", "succeed");
+        response.put("data", size);
         return response;
     }
 
