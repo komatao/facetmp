@@ -60,7 +60,7 @@ public class IdregController {
 
         Map<String, Object> response = new HashMap<>();
         response.put("code", 0);
-        response.put("message", "succeed");
+        response.put("msg", "succeed");
         response.put("data", 10);
         return response;
     }
